@@ -19,6 +19,15 @@
 #define MMIC_CMD_SET_STACKSIZE	  	0x20
 #define MMIC_CMD_SET_TASKPRIORITY 	0x21
 
+#define MMIC_CMD_SET_TASKNANE 	        0x30
+#define MMIC_CMD_SET_TASKNANE0      	0x30
+#define MMIC_CMD_SET_TASKNANE1      	0x31
+#define MMIC_CMD_SET_TASKNANE2      	0x32
+#define MMIC_CMD_SET_TASKNANE3      	0x33
+
+#define MMIC_CMD_SET_PREPROCESS_CB      0x40
+#define MMIC_CMD_SET_POSTPROCESS_CB		0x41
+
 #define MMIC_STAT_EXIT            	0x00
 #define MMIC_STAT_RUN             	0x01
 #define MMIC_STAT_PAUSE            	0x02

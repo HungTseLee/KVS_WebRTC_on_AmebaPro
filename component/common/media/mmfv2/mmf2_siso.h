@@ -6,7 +6,6 @@
 #include <task.h>
 #include "mmf2_module.h"
 
-
 typedef struct mm_siso_s{
     mm_context_t *input;
     mm_context_t *output;
@@ -16,7 +15,11 @@ typedef struct mm_siso_s{
 	
     uint32_t	stack_size;
     uint32_t    task_priority; 
+    char        taskname[16]; 
     xTaskHandle task;
+    
+    void (*preprocessing_callback)(uint8_t* input_buf, int input_buf_size);
+    void (*postprocessing_callback)(uint8_t* output_buf, int output_buf_size);
 }mm_siso_t;
 
 extern int siso_start(mm_siso_t* siso);

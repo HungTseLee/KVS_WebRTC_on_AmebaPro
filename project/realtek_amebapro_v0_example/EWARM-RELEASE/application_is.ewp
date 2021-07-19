@@ -3106,6 +3106,15 @@
                 <name>$PROJ_DIR$\..\..\..\component\soc\realtek\8195b\misc\bsp\lib\common\IAR\libwebsockets.a</name>
             </file>
         </group>
+        <group>
+            <name>obj_detect</name>
+            <file>
+                <name>$PROJ_DIR$\..\src\obj_detect\IAR\lib_obj_detect.a</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\obj_detect\IAR\libSkynetAPI_iot_1.4.9.0.a</name>
+            </file>
+        </group>
         <file>
             <name>$PROJ_DIR$\..\..\..\component\soc\realtek\8195b\fwlib\hal-rtl8195b-hp\lib\lib\hal_pmc_hs.a</name>
         </file>
@@ -5583,6 +5592,24 @@
                         </data>
                     </settings>
                 </configuration>
+            </group>
+            <group>
+                <name>obj_detect</name>
+                <file>
+                    <name>$PROJ_DIR$\..\src\obj_detect\module_obj_detect.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\src\obj_detect\module_skynet.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\src\obj_detect\object_detection_init.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\src\obj_detect\skynet_device.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\src\obj_detect\skynet_wakeup.c</name>
+                </file>
             </group>
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\example\audio_helix_aac\example_audio_helix_aac.c</name>

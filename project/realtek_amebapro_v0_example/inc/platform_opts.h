@@ -662,3 +662,6 @@ in lwip_opt.h for support uart adapter*/
 #define CONFIG_EXAMPLE_AMAZON_FREERTOS          0
 
 #define CONFIG_EXAMPLE_AMAZON_AFQP_TESTS        0
+
+/* For object detection example */
+#define CONFIG_EXAMPLE_OBJECT_DETECTION         0

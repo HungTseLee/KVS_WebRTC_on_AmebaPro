@@ -274,6 +274,12 @@ extern unsigned int sys_now(void);
 #endif
 
 #if defined(CONFIG_VIDEO_APPLICATION)
+#undef	LWIP_WND_SCALE
+#define	LWIP_WND_SCALE                  1
+
+#undef	TCP_RCV_SCALE
+#define	TCP_RCV_SCALE                   0
+
 #undef MEM_SIZE
 #define MEM_SIZE (75*1024)
 

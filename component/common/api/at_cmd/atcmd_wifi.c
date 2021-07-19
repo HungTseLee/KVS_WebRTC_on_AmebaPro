@@ -126,6 +126,9 @@ extern void inic_c2h_wifi_info(const char *atcmd, char status);
 extern void inic_c2h_msg(const char *atcmd, u8 status, char *msg, u16 msg_len);
 #endif
 
+int startAPMode = 0;//
+int isAPMode = 0;//
+
 /* fastconnect use wifi AT command. Not init_wifi_struct when log service disabled
  * static initialize all values for using fastconnect when log service disabled
  */
@@ -521,9 +524,8 @@ void fATWx(void *arg){
 				printf("\n\rAssociated Client List:");
 				printf("\n\r==============================");
 
-				if(client_info.count == 0)
-					printf("\n\rClient Num: 0\n\r", client_info.count);
-				else
+				printf("\n\rClient Num: %d", client_info.count);
+				if(client_info.count != 0)
 				{
 					printf("\n\rClient Num: %d", client_info.count);
 					for( client_number=0; client_number < client_info.count; client_number++ )
@@ -875,6 +877,10 @@ exit:
 	inic_c2h_wifi_info("ATWA", ret);
 #endif
 	init_wifi_struct( );
+        
+ 	startAPMode = 1;
+	isAPMode = 1;
+        
 }
 
 #if CONFIG_INIC_EN
@@ -2815,6 +2821,33 @@ void fATWU(void *arg)
 	printf("Please set CONFIG_BSD_TCP 1 in platform_opts.h to enable ATWU command\n");
 #endif
 }
+
+extern int UID_Setup;
+extern char gP2PString[32];
+
+void fATUID(void *arg){
+	int ret = RTW_SUCCESS;
+	if(!arg){
+		printf("[ATUID]Usage: ATUID=UID(Maximum length is 32)\n\r");
+		ret = RTW_BADARG;
+		goto exit;
+	}
+	if(strlen((char*)arg) > 32){
+		printf("[ATUID]Error: UID length can't exceed 32\n\r");
+		ret = RTW_BADARG;
+		goto exit;
+	}
+	printf("[ATUID]: _AT_WLAN_SET_P2P_UID_ [%s]\n\r", (char*)arg);
+	memset(gP2PString, 0, 32);
+	strcpy(gP2PString, (char*)arg);
+	UID_Setup = 1;
+exit:
+#if CONFIG_INIC_CMD_RSP
+	inic_c2h_msg("ATUID", ret, NULL, 0);
+#endif
+	return;
+}
+
 #elif ATCMD_VER == ATVER_2 // uart at command
 //move to atcmd_lwip.c
 #endif
@@ -2895,6 +2928,9 @@ log_item_t at_wifi_items[ ] = {
 	{"ATXP", fATXP,},
 #endif
 #endif
+
+	{"ATUD", fATUID,},
+    
 #elif ATCMD_VER == ATVER_2 // uart at command
 #if CONFIG_WLAN
 	{"ATPA", fATPA,}, // set AP
