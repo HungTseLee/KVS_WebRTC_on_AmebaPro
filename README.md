@@ -63,7 +63,7 @@ You can review the [ChangeLog](https://github.com/HungTseLee/KVS_WebRTC_on_Ameba
   </tr>
 </table>
 
-### :bulb: Object Detection
+### :bulb: Object Detection on Cloud
 &nbsp; AmebaPro(image uploader) + Rekognition(AWS AI) = object detection and classification :cloud:  
 <table style="width:100%; table-layout:fixed">
   <tr>
@@ -84,6 +84,13 @@ You can review the [ChangeLog](https://github.com/HungTseLee/KVS_WebRTC_on_Ameba
   <img src="https://img.shields.io/badge/-Getting%20Started-green" valign="middle" height=25px width=120px/>
 </a>  
 &nbsp; [FreeRTOS demos](https://docs.aws.amazon.com/freertos/latest/userguide/freertos-next-steps.html): coreHTTP, coreMQTT, Over-the-air updates(OTA), AWS IoT Device Shadow...  
+
+### :bulb: Edge AI - Human Detection and Face Detetcion on AmebaPro
+&nbsp; AmebaPro can do human detection or face detetcion by itself! (inference on edge device).
+<a href="https://github.com/HungTseLee/KVS_WebRTC_on_AmebaPro/blob/main/Object_detection_demo.md">
+  <img src="https://img.shields.io/badge/-Getting%20Started-green" valign="middle" height=25px width=120px/>
+</a>
+
 
 ## Demo code  
 :pencil2: **KVS WebRTC** &nbsp; &nbsp;`project/component/common/example/kvs_webrtc`  
